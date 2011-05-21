@@ -10,7 +10,7 @@ describe PagesController do
     end
     it "should have right title" do
       get 'home'
-      response.should have_selector("title",:content=>"Tested App | Home") 
+      response.should have_selector("title") 
     end
 
      
@@ -23,7 +23,7 @@ describe PagesController do
     end
     it "should have right title" do
       get 'contact'
-      response.should have_selector("title",:content=>"Tested App | Contact") 
+      response.should have_selector("title") 
     end
   end
 
@@ -34,7 +34,7 @@ describe PagesController do
     end
     it "should have right title" do
       get 'about'
-      response.should have_selector("title",:content=>"Tested App | About") 
+      response.should have_selector("title") 
     end
   end
 end
