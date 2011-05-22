@@ -14,7 +14,5 @@ module ApplicationHelper
 		logo_path = "Back to home"
 	end
 	@ret_val = logo_path
-	puts @ret_val
   end
-puts @ret_val
 end
