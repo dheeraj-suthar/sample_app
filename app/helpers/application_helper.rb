@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+@ret_val="tom"
   def title
 	base_title = "Dheeraj's made ruby sample"
 	if @title.nil?
@@ -7,5 +7,14 @@ module ApplicationHelper
 	else
 		"#{base_title} > #{@title}"
 	end
+  end
+  def logo
+	logo_path = image_tag("logo.png", :class => "round")
+	if logo_path.nil?
+		logo_path = "Back to home"
 	end
+	@ret_val = logo_path
+	puts @ret_val
+  end
+puts @ret_val
 end
