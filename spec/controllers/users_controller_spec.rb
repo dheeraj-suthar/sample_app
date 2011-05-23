@@ -1,15 +1,4 @@
 require 'spec_helper'
-
-describe UsersController do
-
-  describe "GET 'new'" do
-    it "should be successful" do
-      get 'new'
-      response.should be_success
-    end
-  end
-
-require 'spec_helper'
 describe UsersController do
   render_views
   describe "GET 'new'" do
@@ -23,7 +12,38 @@ describe UsersController do
       response.should have_selector("title", :content => "Sign up")
     end
   end
+
+  describe "GET 'show'" do
+    before(:each) do
+	@user = Factory(:user)
+    end
+
+    it "should be successful" do
+	get :show, :id => @user
+	response.should be_success
+    end
+
+    it "should be find right user" do
+	get :show, :id => @user
+	assigns(:user).should == @user
+    end
+
+    it "should have right title" do
+	get :show, :id => @user
+	response.should have_selector("title", :content => @user.name)
+    end	
+
+    it "should include the user's name" do
+	get :show, :id => @user
+	response.should have_selector("h1", :content => @user.name)
+    end
+
+    it "should include the gravatar" do
+	get :show, :id => @user
+	response.should have_selector("h1>img", :class => "gravatar")
+    end
+
+  end
 end
 
 
-end
