@@ -15,4 +15,7 @@ module ApplicationHelper
 	end
 	@ret_val = logo_path
   end
+	def gravatar_for(user)
+		gravatar_image_tag(user.email.downcase,:class=>"gravatar")
+	end
 end

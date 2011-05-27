@@ -3,3 +3,7 @@ Factory.define :user do |user|
   user.email	"dheeraj@futurenow.biz"
   user.password	"foobar"
 end
+
+Factory.sequence :email do |n|
+	"person-#{n}@example.com"
+end
