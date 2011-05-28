@@ -1,7 +1,18 @@
-<h1>Pages#home</h1>
-<p>
-	This is home page for my sample app.
-	<%= link_to "My home site",'http://indideveloper.com' %>
-</p>
-<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
-
+<h1>Chit Chat</h1>
+<% if signed_in? %>
+	<table class="front" summary="For signed-in users">
+		<tr>
+			<td class="main">
+				<h1 class="micropost" >Share:</h1>
+				<%= render 'shared/micropost_form' %>
+				<%= render 'shared/feed' %>
+			</td>
+			<td class="sidebar round">
+				<%= render 'shared/user_info' %>
+			</td>
+		</tr>
+	</table>
+<% else %>
+	<p> Chit Chat - A sample site to share thoughts..</p>
+	<%= link_to "Sign up Now!", signup_path, :class => "signup_button round"%>
+<%end%>
